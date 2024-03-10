@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1658638758321299560}
   - component: {fileID: 6418482504048344094}
   - component: {fileID: 7592701641895838571}
+  - component: {fileID: -4838684752742622980}
   m_Layer: 0
   m_Name: LittleContainer
   m_TagString: Untagged
@@ -288,6 +289,18 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &-4838684752742622980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564509008229821900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb8e051a50356144b5a5b37d24772e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8097482021723511845
 GameObject:
   m_ObjectHideFlags: 0
