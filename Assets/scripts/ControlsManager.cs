@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ControlsManager : MonoBehaviour
 {
     public GameObject handR;
+    public GameObject handL;
 
 
     public GameObject lockObject;
@@ -38,7 +39,8 @@ public class ControlsManager : MonoBehaviour
             {
                 if (Vector3.Distance(handR.transform.position, lockObject.transform.position) < 0.10f)
                 {
-                    doorObject.GetComponent<XRGrabInteractable>().enabled = true;
+                    doorObject.GetComponent<XRGrabInteractable>().enabled =
+                        !doorObject.GetComponent<XRGrabInteractable>().enabled;
                     lockObject.GetComponentInChildren<AudioSource>().PlayOneShot(lockKeyAudio);
                 }
 
@@ -63,7 +65,20 @@ public class ControlsManager : MonoBehaviour
                 foreach (IXRHoverInteractable xrHoverInteractable in handR.GetComponentInChildren<XRRayInteractor>()
                              .interactablesHovered)
                 {
-                    xrHoverInteractable.transform.gameObject.GetComponent<Container>().FillContainer();
+                    foreach (var xrBaseInteractor in handL.GetComponentsInChildren<XRBaseInteractor>())
+                    {
+                        if (xrBaseInteractor.hasSelection)
+                        {
+                            ContainerFiller filler = xrBaseInteractor.firstInteractableSelected.transform.gameObject
+                                .GetComponent<ContainerFiller>();
+                            Container filled = xrHoverInteractable.transform.gameObject.GetComponent<Container>();
+                            if (filler != null && filled != null && filler.ContainerId == filled.containerId)
+                            {
+                                filled.FillContainer();
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }

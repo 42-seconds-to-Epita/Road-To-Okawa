@@ -27,6 +27,6 @@ public class RadioScript : MonoBehaviour
         FMOD.Channel channel;
         system.playSound(sound, channelGroup, false, out channel);
 
-        channelGroup.setVolume(0.5f);
+        channelGroup.setVolume(0.3f);
     }
 }
