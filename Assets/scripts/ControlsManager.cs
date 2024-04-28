@@ -39,8 +39,7 @@ public class ControlsManager : MonoBehaviour
             {
                 if (Vector3.Distance(handR.transform.position, lockObject.transform.position) < 0.10f)
                 {
-                    doorObject.GetComponent<XRGrabInteractable>().enabled =
-                        !doorObject.GetComponent<XRGrabInteractable>().enabled;
+                    doorObject.GetComponent<XRGrabInteractable>().enabled = true;
                     lockObject.GetComponentInChildren<AudioSource>().PlayOneShot(lockKeyAudio);
                 }
 

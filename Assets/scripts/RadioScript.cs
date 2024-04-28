@@ -9,7 +9,6 @@ using Debug = UnityEngine.Debug;
 
 public class RadioScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         FMOD.System system;
